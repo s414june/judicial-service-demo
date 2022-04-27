@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="./Resources/System/Styles/bootstrap/bootstrap.min.css">
+    <script src="./Resources/System/Scripts/bootstrap/bootstrap.min.js"></script>
+    <script src="./Resources/System/Scripts/jquery/jquery-3.6.0.min.js"></script>
+    <script src="./Resources/package/font-awesome/fontawesome.min.js"></script>
+
+    <script src="./Resources/Scripts/cardScroll.js"></script>
+
+    <link rel="stylesheet" href="./Resources/Styles/style.css">
+    <title>司法院客服小幫手</title>
+</head>
+<style>
+
+</style>
+
+<body>
+    <header>
+        <div id="titleOutside">
+            <h5 id="title">司法院客服小幫手</h1>
+        </div>
+        <div class="alert alert-warning alert-dismissible fade show info-place" role="alert">
+            為保護您的權益，請詳細閱讀
+            <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html" target="_blank">隱私權宣告及資訊安全政策</a>
+            ，當問題送出時，即視同您已充分了解與同意。
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </header>
+    <section id="main">
+        <div id="msgPlace">
+            <div class="service-place position-relative w-100">
+                <div class="head-img"></div>
+                <div class="msg-outside mx-5 position-relative">
+                    <div class="msg mx-4">
+                        <p>
+                            您好，我是司法院客服小幫手，目前我可以協助您取得想要的書狀範例或是回答常見問題~ (
+                            建議使用Chrome或Edge瀏覽器，解析度在1920*1080時，可獲得最佳瀏覽體驗，其他注意事項請參見：點我開啟 )
+                        </p>
+                        <p>
+                            您可以試著這樣問：
+                        </p>
+                        <hr>
+                        <ul>
+                            <li>我想要閱卷</li>
+                            <li>發生車禍怎麼辦</li>
+                        </ul>
+                    </div>
+                    <small class="msg-datetime mx-4">2022/03/14 13:27:40</small>
+                    <div class="recommend-outside position-relative">
+                        <div class="goto-left-btn">
+                            <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                        </div>
+                        <div class="recommend-cards mx-4">
+                            <div class="position-relative d-flex cards-outside">
+                                <div class="card rec-card" style="width: 18rem;">
+                                    <img src="./Resources/Images/card1.jpg" class="card-img-top" alt="常見問題">
+                                    <div class="card-body">
+                                        <h5 class="card-title">常見問題</h5>
+                                        <p><a href="javascript:void(0)">各法院資訊</a></p>
+                                        <p><a href="javascript:void(0)">公證與認證</a></p>
+                                        <p><a href="javascript:void(0)">現行繼承方式規定</a></p>
+                                    </div>
+                                </div>
+                                <div class="card rec-card" style="width: 18rem;">
+                                    <img src="./Resources/Images/card2.jpg" class="card-img-top" alt="書狀範例下載">
+                                    <div class="card-body">
+                                        <h5 class="card-title">書狀範例下載</h5>
+                                        <p><a href="javascript:void(0)">陳報/陳明/聲明狀範例下載</a></p>
+                                        <p><a href="javascript:void(0)">撤回狀範例下載</a></p>
+                                        <p><a href="javascript:void(0)">答辯狀範例下載</a></p>
+                                    </div>
+                                </div>
+                                <div class="card rec-card" style="width: 18rem;">
+                                    <img src="./Resources/Images/card3.jpg" class="card-img-top" alt="國民法官">
+                                    <div class="card-body">
+                                        <h5 class="card-title">國民法官</h5>
+                                        <p><a href="javascript:void(0)">國民法官資格</a></p>
+                                        <p><a href="javascript:void(0)">國民法官職權</a></p>
+                                        <p><a href="javascript:void(0)">國民法官選任程序</a></p>
+                                    </div>
+                                </div>
+                                <div class="card rec-card" style="width: 18rem;">
+                                    <img src="./Resources/Images/card4.jpg" class="card-img-top" alt="便民服務">
+                                    <div class="card-body">
+                                        <h5 class="card-title">便民服務</h5>
+                                        <p><a href="javascript:void(0)">調閱電子筆錄</a></p>
+                                        <p><a href="javascript:void(0)">聯合服務中心</a></p>
+                                        <p><a href="javascript:void(0)">多元化繳費服務</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class=" goto-right-btn">
+                            <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="user-place">
+                <div class="msg-outside">
+                    <div class="msg">
+                        <p>公證與認證</p>
+                    </div>
+                </div>
+            </div> -->
+
+
+            <!-- <div class="service-place position-relative w-100">
+                <div class="head-img"></div>
+                <div class="msg-outside mx-5 position-relative">
+                    <div class="msg mx-4">
+                        <p><strong> 公證與認證相關事項：</strong></p>
+                        <ol>
+                            <li><strong>介紹及應備文件：</strong>請點選下面按鈕→
+                                公證與認證介紹
+                            </li>
+                            <li><strong>費用：</strong>請點選下面按鈕→
+                                <br>(1)公證費用
+                                <br>(2)公證費用超過新臺幣50萬元不需申報
+                            </li>
+                            <li><strong>委託：</strong>請點選下面按鈕→
+                                公證委託代理人
+                            </li>
+                            <li><strong>資格：</strong>請點選下面按鈕→
+                                <br>(1)辦理公證當事人資格及條件限制
+                                <br>(2)公、認證程序的見證人資格
+                            </li>
+                            <li><strong>閱覽或抄錄：</strong>請點選下面按鈕→
+                                閱覽或抄錄他人的公認證文件
+                            </li>
+                            <li><strong>文件文書公、認證：</strong>請點選下面按鈕→
+                                各類文件、文書辦理公證或認證
+                            </li>
+                        </ol>
+                    </div>
+                    <small class="msg-datetime mx-4">2022/03/14 13:27:40</small>
+                    <div class="recommend-outside position-relative">
+                        <div class="goto-left-btn">
+                            <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                        </div>
+                        <div class="recommend-cards mx-4">
+                            <div class="position-relative d-flex cards-outside">
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證與認證介紹</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證費用</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證費用超過新臺幣50萬元不需申報</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">辦理公證當事人資格及條件限制</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公、認證程序的見證人資格</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">閱覽或抄錄他人的公認證文件</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">各類文件辦理公證或認證</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">文件認證轄區限制</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">特定交易公證及申報</a></div>
+                            </div>
+                        </div>
+                        <div class=" goto-right-btn">
+                            <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+        </div>
+    </section>
+    <footer>
+        <div id="input-place">
+            <div id="fontChanger">
+                <img src="./Resources/Images/font-size.svg" alt="字體大小調整">
+            </div>
+            <input type="text" placeholder="請輸入您的提問" id="userInputPlace">
+            <button class="btn btn-primary" id="userSubmitBtn">
+                送出
+                <img src="./Resources/Images/send.svg" alt="送出提問">
+            </button>
+        </div>
+        <div class="card text-white bg-primary" style="width: 8rem;" id="fontChangerCard">
+            <div class="card-body">
+                <ul>
+                    <li>字體大小</li>
+                    <li style="font-size: 1.5rem;" class="font-changer-btn">大</li>
+                    <li style="font-size: 1.2rem;" class="font-changer-btn">中</li>
+                    <li style="font-size: 1rem;" class="font-changer-btn">小</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+<script>
+    //單純前端驗證，暫用
+    const pwNum = "70771557";
+    const password = sessionStorage.getItem("password");
+    if (password != pwNum) {
+        window.location.assign("./verify.html");
+    }
+
+    $("body").click((e) => {
+        $("#fontChangerCard").hide();
+    })
+    $("#fontChanger").click((e) => {
+        e.stopPropagation();
+        $("#fontChangerCard").toggle();
+    })
+    $("#fontChangerCard .font-changer-btn").click((e) => {
+        e.stopPropagation();
+        let newFontSize = $(e.currentTarget).css("font-size");
+        document.documentElement.style.setProperty("--bs-body-font-size", newFontSize);
+    })
+
+    $(function () {
+        const cardCount = $('.recommend-cards .card').length;
+        $(".recommend-cards .cards-outside").width("calc((18rem + 1rem)*" + cardCount + ")");
+
+        let headerHeight = $("header").height();
+        let footerHeight = $("footer").height();
+        document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
+        document.documentElement.style.setProperty("--margin-for-footer", footerHeight + "px");
+
+        var alertNode = document.querySelector('header .alert');
+        alertNode.addEventListener('closed.bs.alert', function () {
+            headerHeight = $("header").height();
+            document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
+        })
+    })
+
+    $("#userSubmitBtn").click(() => {
+        alert("請按「公證與認證」");
+    })
+
+    $(".recommend-cards .rec-card a[href='javascript:void(0)']").click((e) => {
+        doTalk(e.currentTarget);
+    })
+
+    function doTalk(that) {
+        let userTalkText = $(that).text();
+        $("#msgPlace").append(`
+        <div class="user-place">
+                <div class="msg-outside">
+                    <div class="msg">
+                        <p>${userTalkText}</p>
+                    </div>
+                </div>
+            </div>
+        `);
+        $(this).scrollTop(100000);
+        doResponse(userTalkText);
+    }
+    function doResponse(text) {
+        if (text == "公證與認證") {
+            $("#msgPlace").append(`
+            <div class="service-place position-relative w-100">
+                <div class="head-img"></div>
+                <div class="msg-outside mx-5 position-relative">
+                    <div class="msg mx-4">
+                        <p><strong> 公證與認證相關事項：</strong></p>
+                        <ol>
+                            <li><strong>介紹及應備文件：</strong>請點選下面按鈕→
+                                公證與認證介紹
+                            </li>
+                            <li><strong>費用：</strong>請點選下面按鈕→
+                                <br>(1)公證費用
+                                <br>(2)公證費用超過新臺幣50萬元不需申報
+                            </li>
+                            <li><strong>委託：</strong>請點選下面按鈕→
+                                公證委託代理人
+                            </li>
+                            <li><strong>資格：</strong>請點選下面按鈕→
+                                <br>(1)辦理公證當事人資格及條件限制
+                                <br>(2)公、認證程序的見證人資格
+                            </li>
+                            <li><strong>閱覽或抄錄：</strong>請點選下面按鈕→
+                                閱覽或抄錄他人的公認證文件
+                            </li>
+                            <li><strong>文件文書公、認證：</strong>請點選下面按鈕→
+                                各類文件、文書辦理公證或認證
+                            </li>
+                        </ol>
+                    </div>
+                    <small class="msg-datetime mx-4">2022/03/14 13:27:40</small>
+                    <div class="recommend-outside position-relative">
+                        <div class="goto-left-btn">
+                            <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                        </div>
+                        <div class="recommend-cards mx-4">
+                            <div class="position-relative d-flex cards-outside">
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證與認證介紹</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證費用</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公證費用超過新臺幣50萬元不需申報</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">辦理公證當事人資格及條件限制</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">公、認證程序的見證人資格</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">閱覽或抄錄他人的公認證文件</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">各類文件辦理公證或認證</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">文件認證轄區限制</a></div>
+                                <div class="small-card rec-card"><a href="javascript:void(0)">特定交易公證及申報</a></div>
+                            </div>
+                        </div>
+                        <div class=" goto-right-btn">
+                            <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `);
+
+            $(this).scrollTop(100000);
+            $(".recommend-cards .rec-card a[href='javascript:void(0)']").click((e) => {
+                doTalk(e.currentTarget);
+            })
+        }
+    }
+</script>
+
+</html>

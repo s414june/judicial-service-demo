@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../Resources/System/Scripts/jquery/jquery-3.6.0.min.js"></script>
+    <title>司法院客服小幫手</title>
+</head>
+<body>
+    <label for="password">輸入驗證碼：</label>
+    <input type="text" id="password">
+    <button id="submit">送出</button>
+</body>
+<script>
+    const pwNum = "70771557";
+    $("#submit").click(()=>{
+        let password  = $("#password").val();
+        if(password==pwNum){
+            sessionStorage.setItem("password",pwNum);
+            window.location.assign("./index.html");
+        }
+    })
+</script>
+</html>
