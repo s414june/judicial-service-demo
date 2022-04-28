@@ -9,16 +9,19 @@ function doTalk(text) {
             </div>
         `)
 
+        let marginForHeader = document.documentElement.style.getPropertyValue(
+            '--margin-for-header',
+          )
+          let _marginForHeader = marginForHeader.replace('px', '')
+        $(this).scrollTop($('.user-place').last().offset().top - _marginForHeader)
   setTimeout(() => {
     doResponse(text)
   }, 500)
 }
 function doResponse(text) {
-  let flag = false
   let appendHtml = ''
   $(msgObj).each((i, obj) => {
     if (obj.userInput == text) {
-      flag = true
       appendHtml += `
       <div class="service-place position-relative w-100">
         <div class="head-img">

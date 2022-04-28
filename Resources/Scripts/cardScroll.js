@@ -19,7 +19,7 @@ function cardScroll() {
     )
 
     const offsetLeftStart = recommendCards.offset().left
-    const outsideWidth = scrollPlace.width()
+    const outsideWidth = recommendCards.width()
     let cardsWidth = 0
     insideCards.each((i, v) => {
       if($(v).hasClass("card")){
@@ -84,6 +84,7 @@ function cardScroll() {
     )
   })
   function toggleArrowBtn(obj) {
+    
     let scrollPlace = obj.scrollPlace
     let offsetLeftStart = obj.offsetLeftStart
     let absoluteMaxWidth = obj.absoluteMaxWidth
