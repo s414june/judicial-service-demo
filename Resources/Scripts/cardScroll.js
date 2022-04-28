@@ -17,9 +17,13 @@ function cardScroll() {
     const offsetLeftStart = recommendCards.offset().left
     const outsideWidth = scrollPlace.width()
     let cardsWidth = 0
-    if ($(insideCards[0]).hasClass('card')) cardsWidth += 19 //1rem
     insideCards.each((i, v) => {
-      cardsWidth += $(v).width()
+      if($(v).hasClass("card")){
+        cardsWidth += 288  //18rem
+      }
+      else{
+        cardsWidth += $(v).width()
+      }
       cardsWidth += 16 //1rem
     })
     const absoluteMaxWidth = cardsWidth - outsideWidth
