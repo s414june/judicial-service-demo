@@ -1,71 +1,96 @@
 $(function () {
+  cardScroll()
+})
+function cardScroll() {
   $('.recommend-cards').each((i, recommendCards_js) => {
+    let scrollFn
     let recommendCards = $(recommendCards_js)
     let scrollPlace = $(recommendCards_js.querySelector('.cards-outside'))
-    let insideCards = $(recommendCards_js.querySelector('.rec-card'))
+    let insideCards = $(recommendCards_js.querySelectorAll('.rec-card'))
     let goLeftBtn = $(
       $(recommendCards_js).parent().get(0).querySelector('.goto-left-btn'),
     )
     let goRightBtn = $(
       recommendCards.parent().get(0).querySelector('.goto-right-btn'),
     )
-    
+
     const offsetLeftStart = recommendCards.offset().left
-    const outsideWidth = insideCards.width()
-    let cardsWidth = 19
+    const outsideWidth = scrollPlace.width()
+    let cardsWidth = 0
+    if ($(insideCards[0]).hasClass('card')) cardsWidth += 19 //1rem
     insideCards.each((i, v) => {
-        cardsWidth += $(v).width()
-        cardsWidth += 16
+      cardsWidth += $(v).width()
+      cardsWidth += 16 //1rem
     })
     const absoluteMaxWidth = cardsWidth - outsideWidth
 
     let obj = {
-        scrollPlace: scrollPlace,
-        offsetLeftStart: offsetLeftStart,
-        absoluteMaxWidth: absoluteMaxWidth,
-        goLeftBtn : goLeftBtn,
-        goRightBtn:goRightBtn
+      scrollPlace: scrollPlace,
+      offsetLeftStart: offsetLeftStart,
+      absoluteMaxWidth: absoluteMaxWidth,
+      goLeftBtn: goLeftBtn,
+      goRightBtn: goRightBtn,
     }
     toggleArrowBtn(obj)
 
-    goLeftBtn.click((e) => {
-      let offsetLeftNow = scrollPlace.offset().left
-      let newoffsetLeft = offsetLeftNow + 5
-      if (newoffsetLeft >= absoluteMaxWidth)
-        recommendCards.scrollLeft(absoluteMaxWidth - offsetLeftStart)
-      else recommendCards.scrollLeft(newoffsetLeft)
-
-      toggleArrowBtn(obj)
+    let intervalScollEvent
+    goLeftBtn.mousedown((e) => {
+      let newOffset = recommendCards.offset().left - scrollPlace.offset().left
+      recommendCards.scrollLeft(newOffset - 20)
+      intervalScollEvent = window.setInterval(() => {
+        if (goLeftBtn.css('display') != 'none') {
+          newOffset = recommendCards.offset().left - scrollPlace.offset().left
+          recommendCards.scrollLeft(newOffset - 20)
+        }
+        else{
+          clearInterval(intervalScollEvent)
+        }
+      }, 70)
     })
-    goRightBtn.click((e) => {
-      let offsetLeftNow = scrollPlace.offset().left
-      let newoffsetLeft = offsetLeftNow - 5
-      if (-newoffsetLeft >= absoluteMaxWidth)
-        recommendCards.scrollLeft(absoluteMaxWidth + offsetLeftStart)
-      else recommendCards.scrollLeft(newoffsetLeft)
-      toggleArrowBtn(obj)
+    goLeftBtn.mouseup(() => {
+      clearInterval(intervalScollEvent)
     })
-    recommendCards.scroll(() => {
+    goRightBtn.mousedown((e) => {
+      let newOffset = recommendCards.offset().left - scrollPlace.offset().left
+      recommendCards.scrollLeft(newOffset + 20)
+      intervalScollEvent = window.setInterval(() => {
+        if (goRightBtn.css('display') != 'none') {
+          newOffset = recommendCards.offset().left - scrollPlace.offset().left
+          recommendCards.scrollLeft(newOffset + 20)
+        }
+        else{
+          clearInterval(intervalScollEvent)
+        }
+      }, 70)
+    })
+    goRightBtn.mouseup(() => {
+      clearInterval(intervalScollEvent)
+    })
+    //監聽捲軸
+    recommendCards.unbind('scroll', scrollFn)
+    recommendCards.bind(
+      'scroll',
+      (scrollFn = () => {
         toggleArrowBtn(obj)
-    })
+      }),
+    )
   })
   function toggleArrowBtn(obj) {
-    let scrollPlace = obj.scrollPlace;
-    let offsetLeftStart = obj.offsetLeftStart;
-    let absoluteMaxWidth = obj.absoluteMaxWidth;
-    let goLeftBtn = obj.goLeftBtn;
-    let goRightBtn = obj.goRightBtn;
+    let scrollPlace = obj.scrollPlace
+    let offsetLeftStart = obj.offsetLeftStart
+    let absoluteMaxWidth = obj.absoluteMaxWidth
+    let goLeftBtn = obj.goLeftBtn
+    let goRightBtn = obj.goRightBtn
 
-    let offsetLeftNow = scrollPlace.offset().left;
+    let offsetLeftNow = scrollPlace.offset().left
     let absoluteLeft = offsetLeftStart - offsetLeftNow
-    if (absoluteLeft <= 0) {
+
+    if (absoluteMaxWidth <= 0) {
       goLeftBtn.hide()
-      if (absoluteLeft == absoluteMaxWidth) goRightBtn.hide()
-    } else if (absoluteLeft > absoluteMaxWidth) {
       goRightBtn.hide()
     } else {
-      goLeftBtn.show()
-      goRightBtn.show()
+      absoluteLeft <= 0 ? goLeftBtn.hide() : goLeftBtn.show()
+      absoluteLeft >= absoluteMaxWidth ? goRightBtn.hide() : goRightBtn.show()
     }
   }
-})
+}

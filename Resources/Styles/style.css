@@ -4,7 +4,6 @@
 }
 body{
     background: #F8F6EF;
-    overflow-x: hidden;
 }
 header{
     position: fixed;
@@ -79,7 +78,7 @@ footer{
     top: 0;
 }
 #msgPlace .service-place .msg-outside{
-    width: 100%;
+    width: calc(100% - 6rem);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -162,12 +161,12 @@ footer{
     transform: translateX(-50%);
 }
 .goto-right-btn{
-    right: calc(1rem + 3rem);
+    right: 0;
     transform: translateX(50%);
 }
 
 .recommend-cards{
-    width: calc(100% - 1.5rem*2 - 3rem - 1rem);  /* mx-4 */
+    width: calc(100% - 1.5rem*2);
     overflow-x: auto;
     padding: 5px 0;
     scroll-behavior: smooth;
@@ -183,11 +182,8 @@ footer{
     border-radius: 100px; /* roundness of the scroll thumb */
 }
 
-.recommend-cards .card{
+.recommend-cards .rec-card{
     margin-right: 1rem;
-    /* display: inline-block;
-    height: 500px;
-    top: 0; */
 }
 
 .recommend-cards .card-body{
@@ -234,15 +230,13 @@ footer{
 }
 
 .small-card{
-    padding: 1rem;
     border: 1px solid #2A476F;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0,0.3);
+    /* box-shadow: 2px 2px 5px rgba(0, 0, 0,0.3); */
     border-radius: 1000px;
-    margin: .5rem;
     white-space: nowrap;
 }
-.small-card:first-child{
-    margin-left: 0;
+.small-card>*{
+    padding: 1rem;
 }
 
 @media (max-width: 767px) { 
