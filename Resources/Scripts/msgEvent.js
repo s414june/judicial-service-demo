@@ -20,9 +20,11 @@ function doResponse(text) {
     if (obj.userInput == text) {
       flag = true
       appendHtml += `
-                <div class="service-place position-relative w-100">
-                    <div class="head-img"></div>
-                    <div class="msg-outside mx-5 position-relative">
+      <div class="service-place position-relative w-100">
+        <div class="head-img">
+            <img src="./Resources/Images/service-head.png" alt="司法院客服頭貼">
+        </div>
+        <div class="msg-outside mx-5 position-relative">
                 `
       if (obj.msg != undefined) {
         appendHtml += `

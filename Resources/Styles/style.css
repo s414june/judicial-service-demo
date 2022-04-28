@@ -68,14 +68,21 @@ footer{
 
 
 .service-place .head-img{
-    background-image: url("../Images/service-head.png");
+    /* background: #ffffff;
     width: 50px;
-    height: 50px;
-    background-size: contain;
-    background-repeat: no-repeat;
+    height: 50px; */
     position: absolute;
     left: 0;
     top: 0;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.service-place .head-img>img{
+    width: 50px;
+    height: 50px;
 }
 #msgPlace .service-place .msg-outside{
     width: calc(100% - 6rem);
@@ -103,7 +110,7 @@ footer{
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    left:-15px;
+    left:-14px;
     top: 10px;
 }
 #msgPlace .user-place .msg-outside{
@@ -132,7 +139,7 @@ footer{
     background-size: contain;
     background-repeat: no-repeat;
     position: absolute;
-    right:-15px;
+    right:-14px;
     top: 10px;
 }
 #fontChanger img{
@@ -237,6 +244,11 @@ footer{
 }
 .small-card>*{
     padding: 1rem;
+}
+
+.card-img-top{
+    height: 170px;
+    background-size: cover;
 }
 
 @media (max-width: 767px) { 

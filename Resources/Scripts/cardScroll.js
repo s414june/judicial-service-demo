@@ -1,6 +1,10 @@
 $(function () {
   cardScroll()
 })
+$(window).resize(()=>{
+  cardScroll()
+})
+
 function cardScroll() {
   $('.recommend-cards').each((i, recommendCards_js) => {
     let scrollFn
