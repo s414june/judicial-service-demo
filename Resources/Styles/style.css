@@ -30,7 +30,7 @@ footer {
 #main {
   margin-top: var(--margin-for-header);
   margin-bottom: var(--margin-for-footer);
-  padding-bottom: 2rem;
+  padding-bottom: 1.5rem;
 }
 #input-place {
   border-radius: 1000000px;
@@ -77,7 +77,7 @@ footer {
   right: 0;
 }
 #msgPlace {
-  padding: 1rem;
+  padding: 1rem 1rem 0 1rem ;
 }
 
 .service-place .head-img {
@@ -189,7 +189,7 @@ footer {
 .recommend-cards {
   width: calc(100% - 1.5rem * 2);
   overflow-x: auto;
-  padding: 5px 0;
+  /* padding: 5px 0; */
   scroll-behavior: smooth;
 }
 
