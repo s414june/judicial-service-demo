@@ -27,7 +27,7 @@ function doResponse(text) {
         <div class="head-img">
             <img src="./Resources/Images/service-head.png" alt="司法院客服頭貼">
         </div>
-        <div class="msg-outside mx-5 position-relative">
+        <div class="msg-outside mx-md-5 ms-5  position-relative">
                 `
       if (obj.msg != undefined) {
         appendHtml += `

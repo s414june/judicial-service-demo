@@ -264,13 +264,16 @@ footer {
     max-width: 100%;
   }
   .recommend-cards {
-    width: 100%;
+    width: calc(100% - 3rem);
   }
   .goto-left-btn {
     left: -1.5rem;
   }
   .goto-right-btn {
-    right: -1.5rem;
+    right: 1.5rem;
+  }
+  #msgPlace .service-place .msg-outside {
+    width: calc(100% - 3rem);
   }
 }
 
