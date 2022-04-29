@@ -300,6 +300,13 @@ footer {
   .goto-right-btn > * {
     font-size: 1.5rem;
   }
+  .recommend-outside > * {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+  }
 }
 
 /* 修改bootstrap */
