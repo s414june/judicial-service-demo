@@ -35,7 +35,6 @@ footer {
 #input-place {
   border-radius: 1000000px;
   border: 1px solid #2a476f;
-  display: flex;
   justify-content: space-between;
   background-color: #ffffff;
   position: relative;
@@ -51,10 +50,18 @@ footer {
   align-items: center;
   padding: 0 0.8rem;
   height: 100%;
+  width: 50px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 #userInputPlace {
   border: none;
-  flex-grow: 1;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 50px;
+  width: calc(100% - 50px - 80px);
 }
 #userInputPlace:focus {
   outline: none;
@@ -64,6 +71,10 @@ footer {
   padding: 0 0.8rem;
   white-space: nowrap;
   height: 100%;
+  width: 80px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 #msgPlace {
   padding: 1rem;
