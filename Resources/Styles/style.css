@@ -256,6 +256,14 @@ footer {
   }
 }
 
+.goto-left-btn, .goto-right-btn {
+  -moz-user-select:none;
+  -webkit-user-select:none;
+  -ms-user-select:none;
+  -khtml-user-select:none;
+  user-select:none;
+}
+
 @media (max-width: 767px) {
   #msgPlace .service-place .msg {
     max-width: 100%;
