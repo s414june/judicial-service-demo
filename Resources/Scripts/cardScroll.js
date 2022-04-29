@@ -42,7 +42,7 @@ function cardScroll() {
     toggleArrowBtn(obj)
 
     let intervalScollEvent
-    goLeftBtn.mousedown((e) => {
+    goLeftBtn.on("mousedown touchstart",(e) => {
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset - 20)
       intervalScollEvent = window.setInterval(() => {
@@ -55,10 +55,10 @@ function cardScroll() {
         }
       }, 70)
     })
-    goLeftBtn.mouseup(() => {
+    goLeftBtn.on("mouseup touchend",() => {
       clearInterval(intervalScollEvent)
     })
-    goRightBtn.mousedown((e) => {
+    goRightBtn.on("mousedown touchstart",(e) => {
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset + 20)
       intervalScollEvent = window.setInterval(() => {
@@ -71,7 +71,7 @@ function cardScroll() {
         }
       }, 70)
     })
-    goRightBtn.mouseup(() => {
+    goRightBtn.on("mouseup touchend",() => {
       clearInterval(intervalScollEvent)
     })
     //監聽捲軸

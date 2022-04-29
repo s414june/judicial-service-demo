@@ -38,6 +38,9 @@ footer{
     display: flex;
     justify-content: space-between;
     background-color: #ffffff;
+    position: relative;
+    align-items: center;
+    height: 3rem;;
 }
 #fontChanger{
     background-color: #2A476F;
@@ -46,21 +49,21 @@ footer{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 0 .8rem;
     height: 100%;
 }
 #userInputPlace{
     border: none;
     flex-grow: 1;
-    padding: 0 1rem;
 }
 #userInputPlace:focus{
     outline: none;
 }
 .btn#userSubmitBtn{
     border-radius: 10000px ;
-    padding: 0.25rem 1rem;
-    margin:  0.25rem 0.25rem;
+    padding: 0 .8rem;
+    white-space: nowrap;
+    height:100%;
 }
 #msgPlace{
     padding: 1rem;
@@ -179,16 +182,6 @@ footer{
     scroll-behavior: smooth;
 }
 
-.recommend-cards::-webkit-scrollbar {
-    width: 5px;
-    height: 8px;
-}
-
-.recommend-cards::-webkit-scrollbar-thumb {
-    background-color: rgba(0,0,0,0.3); /* color of the scroll thumb */
-    border-radius: 100px; /* roundness of the scroll thumb */
-}
-
 .recommend-cards .rec-card{
     margin-right: 1rem;
 }
@@ -251,14 +244,38 @@ footer{
     background-size: cover;
 }
 
+@media (min-width: 768px) {
+
+    .recommend-cards::-webkit-scrollbar {
+        width: 5px;
+        height: 8px;
+    }
+    
+    .recommend-cards::-webkit-scrollbar-thumb {
+        background-color: rgba(0,0,0,0.3); /* color of the scroll thumb */
+        border-radius: 100px; /* roundness of the scroll thumb */
+    }
+
+ }
+
 @media (max-width: 767px) { 
     #msgPlace .service-place .msg{
-        max-width: calc(100% - 1.5rem - 3rem - 1rem);
+        max-width: 100%;
     }
     #msgPlace .user-place .msg{
-        max-width: calc(100% - 1.5rem - 3rem - 1rem);
+        max-width: 100%;
+    }
+    .recommend-cards{
+        width: 100%;
+    }
+    .goto-left-btn{
+        left: -1.5rem;
+    }
+    .goto-right-btn{
+        right: -1.5rem;
     }
  }
+ 
 
 /* 修改bootstrap */
 .btn-primary,.btn-primary:hover,.btn-primary:focus{
