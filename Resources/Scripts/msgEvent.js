@@ -35,14 +35,14 @@ function doResponse(text) {
                 `
       }
       appendHtml +=
-        '<small class="msg-datetime mx-md-4">2022/03/14 13:27:40</small>'
+        '<small class="msg-datetime mx-md-4">2022/03/14 13:27:40</small></div>'
       if (obj.card != undefined) {
         appendHtml += `
                     <div class="recommend-outside position-relative">
                         <div class="goto-left-btn">
                             <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
                         </div>
-                        <div class="recommend-cards mx-md-4">
+                        <div class="recommend-cards mx-md-4 mx-3">
                             <div class="position-relative d-flex cards-outside">
                                 ${obj.card}
                             </div>
@@ -53,7 +53,7 @@ function doResponse(text) {
                     </div>
                     `
       }
-      appendHtml += '</div></div>'
+      appendHtml += '</div>'
       $('#msgPlace').append(appendHtml)
 
       if (obj.card != undefined) {

@@ -267,12 +267,13 @@ footer {
   }
 }
 
-.goto-left-btn, .goto-right-btn {
-  -moz-user-select:none;
-  -webkit-user-select:none;
-  -ms-user-select:none;
-  -khtml-user-select:none;
-  user-select:none;
+.goto-left-btn,
+.goto-right-btn {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -khtml-user-select: none;
+  user-select: none;
 }
 
 @media (max-width: 767px) {
@@ -283,16 +284,21 @@ footer {
     max-width: 100%;
   }
   .recommend-cards {
-    width: calc(100% - 3rem);
+    width: calc(100% - 2rem);
   }
   .goto-left-btn {
-    left: -1.5rem;
+    left: 0.2rem;
   }
   .goto-right-btn {
-    right: 1.5rem;
+    right: 0.2rem;
   }
   #msgPlace .service-place .msg-outside {
     width: calc(100% - 3rem);
+  }
+
+  .goto-left-btn > *,
+  .goto-right-btn > * {
+    font-size: 1.5rem;
   }
 }
 
