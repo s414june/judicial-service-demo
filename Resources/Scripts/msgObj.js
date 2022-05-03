@@ -4,38 +4,38 @@ let msgObj = [
         msg:`
             <p><strong> 公證與認證相關事項：</strong></p>
             <ol>
-                <li><strong>介紹及應備文件：</strong>請點選下面按鈕→
-                    公證與認證介紹
+                <li><strong>介紹及應備文件：</strong>
+                    <a href="javascript:void(0)" class="rec-target">公證與認證介紹</a>
                 </li>
-                <li><strong>費用：</strong>請點選下面按鈕→
-                    <br>(1)公證費用
-                    <br>(2)公證費用超過新臺幣50萬元不需申報
+                <li><strong>費用：</strong>
+                    <br>(1)<a href="javascript:void(0)" class="rec-target">公證費用</a>
+                    <br>(2)<a href="javascript:void(0)" class="rec-target">公證費用超過新臺幣50萬元不需申報</a>
                 </li>
-                <li><strong>委託：</strong>請點選下面按鈕→
-                    公證委託代理人
+                <li><strong>委託：</strong>
+                <a href="javascript:void(0)" class="rec-target">公證委託代理人</a>
                 </li>
-                <li><strong>資格：</strong>請點選下面按鈕→
-                    <br>(1)辦理公證當事人資格及條件限制
-                    <br>(2)公、認證程序的見證人資格
+                <li><strong>資格：</strong>
+                    <br>(1)<a href="javascript:void(0)" class="rec-target">辦理公證當事人資格及條件限制</a>
+                    <br>(2)<a href="javascript:void(0)" class="rec-target">公、認證程序的見證人資格</a>
                 </li>
-                <li><strong>閱覽或抄錄：</strong>請點選下面按鈕→
-                    閱覽或抄錄他人的公認證文件
+                <li><strong>文件認證轄區：</strong>
+                <a href="javascript:void(0)" class="rec-target">文件認證轄區限制</a>
                 </li>
-                <li><strong>文件文書公、認證：</strong>請點選下面按鈕→
-                    各類文件、文書辦理公證或認證
+                <li><strong>文件文書公、認證：</strong>
+                <a href="javascript:void(0)" class="rec-target">各類文件、文書辦理公證或認證</a>
                 </li>
             </ol>
         `,
         card:`
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">公證與認證介紹</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">公證費用</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">公證費用超過新臺幣50萬元不需申報</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">辦理公證當事人資格及條件限制</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">公、認證程序的見證人資格</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">閱覽或抄錄他人的公認證文件</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">各類文件辦理公證或認證</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">文件認證轄區限制</a></div></div>
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">特定交易公證及申報</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">公證與認證介紹</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">公證費用</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">公證費用超過新臺幣50萬元不需申報</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">辦理公證當事人資格及條件限制</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">公、認證程序的見證人資格</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">閱覽或抄錄他人的公認證文件</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">各類文件辦理公證或認證</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">文件認證轄區限制</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">特定交易公證及申報</a></div></div>
         `
     },
     {
@@ -58,7 +58,17 @@ let msgObj = [
             
         `,
         card:`
-        <div class="small-card rec-card"><div><a href="javascript:void(0)">公證人外出或跨縣市辦理公證</a></div></div>
+        <div class="small-card rec-card"><div><a href="javascript:void(0)" class="rec-target">公證人外出或跨縣市辦理公證</a></div></div>
         `
+    },
+    {
+        userInput:"我要拋棄繼承",
+        text:[
+            "拋棄繼承",
+            "國外繼承人拋棄繼承",
+            "拋棄繼承順位",
+            "強制執行",
+            "胎兒拋棄繼承"
+        ]
     }
 ]

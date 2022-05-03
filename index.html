@@ -10,6 +10,7 @@
     <script src="./Resources/System/Scripts/bootstrap/bootstrap.min.js"></script>
     <script src="./Resources/System/Scripts/jquery/jquery-3.6.0.min.js"></script>
     <script src="./Resources/package/font-awesome/fontawesome.min.js"></script>
+    <script src="./Resources/System/Scripts/moment/moment@2.27.0.js"></script>
 
     <script src="./Resources/Scripts/cardScroll.js"></script>
     <script src="./Resources/Scripts/msgObj.js"></script>
@@ -28,9 +29,16 @@
             <h5 id="title">司法院客服小幫手</h1>
         </div>
         <div class="alert alert-warning alert-dismissible fade show info-place" role="alert">
-            為保護您的權益，請詳細閱讀
-            <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html" target="_blank">隱私權宣告及資訊安全政策</a>
-            ，當問題送出時，即視同您已充分了解與同意。
+            <ul>
+                <li>
+                    歡迎使用司法院智慧客服，使用說明及注意事項請參閱：
+                    <a href="#">司法院智慧客服使用說明</a>。
+                    <br>
+                    為保護您的權益，請詳細閱讀
+                    <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html" target="_blank">隱私權宣告及資訊安全政策</a>
+                    ，當問題送出時，即視同您已充分了解與同意。
+                </li>
+            </ul>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </header>
@@ -55,23 +63,34 @@
                             <li>發生車禍怎麼辦</li>
                         </ul>
                     </div>
-                    <small class="msg-datetime mx-md-4">2022/03/14 13:27:40</small>
+                    <!-- <small class="d-flex mx-md-4 align-items-center response-place">
+                        您是否滿意本次回答：
+                        <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
+                            <img src="./Resources/Images/great.svg" alt="滿意">
+                            滿意
+                        </button>
+                        <button class="btn btn-outline-dark btn-sm res-bad my-2">
+                            <img src="./Resources/Images/great.svg" alt="不滿意">
+                            不滿意
+                        </button>
+                    </small> -->
+                    <small class="msg-datetime mx-md-4 mt-2">2022/03/14 13:27:40</small>
                 </div>
-                <div class="recommend-outside position-relative mx-md-5">
+                <div class="recommend-outside position-relative mx-md-2">
                     <div class="goto-left-btn">
                         <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
                     </div>
-                    <div class="recommend-cards mx-md-4 mx-3">
-                        <div class="position-relative d-flex cards-outside">
+                    <div class="recommend-cards mx-md-4 mx-md-3">
+                        <div class="position-relative d-flex cards-outside py-1">
                             <div class="card rec-card" style="width: 18rem;">
                                 <div class="card-img-top"
                                     style="background-image: url('./Resources/Images/card1.jpg');"></div>
                                 <!-- <img src="./Resources/Images/card1.jpg" class="card-img-top" alt="常見問題"> -->
                                 <div class="card-body">
                                     <h5 class="card-title">常見問題</h5>
-                                    <p><a href="javascript:void(0)">各法院資訊</a></p>
-                                    <p><a href="javascript:void(0)">公證與認證</a></p>
-                                    <p><a href="javascript:void(0)">現行繼承方式規定</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">各法院資訊</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">公證與認證</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">現行繼承方式規定</a></p>
                                 </div>
                             </div>
                             <div class="card rec-card" style="width: 18rem;">
@@ -79,9 +98,9 @@
                                     style="background-image: url('./Resources/Images/card2.jpg');"></div>
                                 <div class="card-body">
                                     <h5 class="card-title">書狀範例下載</h5>
-                                    <p><a href="javascript:void(0)">陳報/陳明/聲明狀範例下載</a></p>
-                                    <p><a href="javascript:void(0)">撤回狀範例下載</a></p>
-                                    <p><a href="javascript:void(0)">答辯狀範例下載</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">陳報/陳明/聲明狀範例下載</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">撤回狀範例下載</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">答辯狀範例下載</a></p>
                                 </div>
                             </div>
                             <div class="card rec-card" style="width: 18rem;">
@@ -89,9 +108,9 @@
                                     style="background-image: url('./Resources/Images/card3.jpg');"></div>
                                 <div class="card-body">
                                     <h5 class="card-title">國民法官</h5>
-                                    <p><a href="javascript:void(0)">國民法官資格</a></p>
-                                    <p><a href="javascript:void(0)">國民法官職權</a></p>
-                                    <p><a href="javascript:void(0)">國民法官選任程序</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">國民法官資格</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">國民法官職權</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">國民法官選任程序</a></p>
                                 </div>
                             </div>
                             <div class="card rec-card" style="width: 18rem;">
@@ -99,9 +118,9 @@
                                     style="background-image: url('./Resources/Images/card4.jpg');"></div>
                                 <div class="card-body">
                                     <h5 class="card-title">便民服務</h5>
-                                    <p><a href="javascript:void(0)">調閱電子筆錄</a></p>
-                                    <p><a href="javascript:void(0)">聯合服務中心</a></p>
-                                    <p><a href="javascript:void(0)">多元化繳費服務</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">調閱電子筆錄</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">聯合服務中心</a></p>
+                                    <p><a href="javascript:void(0)" class="rec-target">多元化繳費服務</a></p>
                                 </div>
                             </div>
                         </div>
@@ -199,6 +218,7 @@
     </footer>
 </body>
 <script>
+    $(".msg-datetime").text(moment().format('YYYY/MM/DD HH:mm:ss'));
     //單純前端驗證，暫用
     const pwNum = "70771557";
     const password = sessionStorage.getItem("password");
@@ -208,6 +228,8 @@
 
     if (mobile()) { //mobile函數在msgEvent.js裡面
         console.log('手機模式');
+        // $("#fontChanger").addClass("fixtop")
+        // $("#userInputPlace").addClass("moblie")
     }
     else {
         console.log('電腦模式');
@@ -246,10 +268,10 @@
 
     $("#userSubmitBtn").click(() => {
         if ($("#userInputPlace").val() == "") {
-            alert("請按「公證與認證」或「文件認證轄區限制」(輸入亦可)");
+            alert("請按「公證與認證」或「文件認證轄區限制」，或輸入「我要拋棄繼承」，以進行前端demo測試");
             return;
         }
-        doTalk($("#userInputPlace").val());
+        doTalk($("#userInputPlace").val(),"multi");
         $("#userInputPlace").val("");
     })
 
