@@ -43,6 +43,7 @@ function cardScroll() {
 
     let intervalScollEvent
     goLeftBtn.on("mousedown touchstart",(e) => {
+      $("body").addClass("unselectable")
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset - 20)
       intervalScollEvent = window.setInterval(() => {
@@ -56,9 +57,11 @@ function cardScroll() {
       }, 70)
     })
     goLeftBtn.on("mouseup touchend",() => {
+      $("body").removeClass("unselectable")
       clearInterval(intervalScollEvent)
     })
     goRightBtn.on("mousedown touchstart",(e) => {
+      $("body").addClass("unselectable")
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset + 20)
       intervalScollEvent = window.setInterval(() => {
@@ -72,6 +75,7 @@ function cardScroll() {
       }, 70)
     })
     goRightBtn.on("mouseup touchend",() => {
+      $("body").removeClass("unselectable")
       clearInterval(intervalScollEvent)
     })
     //監聽捲軸
