@@ -1,6 +1,6 @@
 function doTalk(text) {
   $('#msgPlace').append(`
-        <div class="user-place w-100 position-relative">
+        <div class="user-place w-100 position-relative mx-md-5">
                 <div class="msg-outside">
                     <div class="msg">
                         <p>${text}</p>
