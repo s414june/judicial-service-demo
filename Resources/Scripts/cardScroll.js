@@ -43,7 +43,10 @@ function cardScroll() {
 
     let intervalScollEvent
     goLeftBtn.on("mousedown touchstart",(e) => {
+      e.stopPropagation(); //禁止冒泡，不執行右鍵oncontextmenu(電腦右鍵或手機長按)事件
       $("body").addClass("unselectable")
+      document.oncontextmenu = new Function("return false");
+
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset - 20)
       intervalScollEvent = window.setInterval(() => {
@@ -56,12 +59,17 @@ function cardScroll() {
         }
       }, 70)
     })
-    goLeftBtn.on("mouseup touchend",() => {
+    $(window).on("mouseup touchend",() => { //左右一起結束
       $("body").removeClass("unselectable")
+      // document.oncontextmenu = new Function("return true");
+
       clearInterval(intervalScollEvent)
     })
     goRightBtn.on("mousedown touchstart",(e) => {
+      e.stopPropagation(); //禁止冒泡，不執行右鍵oncontextmenu(電腦右鍵或手機長按)事件
       $("body").addClass("unselectable")
+      document.oncontextmenu = new Function("return false");
+
       let newOffset = recommendCards.offset().left - scrollPlace.offset().left
       recommendCards.scrollLeft(newOffset + 20)
       intervalScollEvent = window.setInterval(() => {
@@ -74,10 +82,11 @@ function cardScroll() {
         }
       }, 70)
     })
-    goRightBtn.on("mouseup touchend",() => {
-      $("body").removeClass("unselectable")
-      clearInterval(intervalScollEvent)
-    })
+    // goRightBtn.on("mouseup touchend",() => {
+    //   $("body").removeClass("unselectable")
+    //   // document.oncontextmenu = new Function("return true");
+    //   clearInterval(intervalScollEvent)
+    // })
     //監聽捲軸
     recommendCards.unbind('scroll', scrollFn)
     recommendCards.bind(

@@ -206,8 +206,17 @@
         window.location.assign("./verify.html");
     }
 
+    if (mobile()) { //mobile函數在msgEvent.js裡面
+        console.log('手機模式');
+    }
+    else {
+        console.log('電腦模式');
+        $(".recommend-cards").addClass("hasscrollbar")
+    }
+
     $("body").click((e) => {
         $("#fontChangerCard").hide();
+        document.oncontextmenu = new Function("return true");
     })
     $("#fontChanger").click((e) => {
         e.stopPropagation();

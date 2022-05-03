@@ -127,12 +127,13 @@ footer {
   top: 10px;
 }
 #msgPlace .user-place .msg-outside {
-  width: 100%;
+  width: calc(100% - 1rem);
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  transform: translateX(calc(0px - (1rem + 3rem)));
+  /* transform: translateX(calc(0px - (1rem + 3rem))); */
+  /* transform: translateX(calc(0px - (1rem))); */
 }
 #msgPlace .user-place .msg {
   background-color: #2a476f;
@@ -255,17 +256,17 @@ footer {
   background-size: cover;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .recommend-cards::-webkit-scrollbar {
     width: 5px;
     height: 8px;
   }
 
   .recommend-cards::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.3); /* color of the scroll thumb */
-    border-radius: 100px; /* roundness of the scroll thumb */
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 100px;
   }
-}
+} */
 
 .goto-left-btn,
 .goto-right-btn {
@@ -282,6 +283,7 @@ footer {
   }
   #msgPlace .user-place .msg {
     max-width: 100%;
+    white-space:normal;
   }
   .recommend-cards {
     width: calc(100% - 2rem);
@@ -331,4 +333,14 @@ footer {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.hasscrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+}
+
+.hasscrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3); /* color of the scroll thumb */
+  border-radius: 100px; /* roundness of the scroll thumb */
 }

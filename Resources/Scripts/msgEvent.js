@@ -1,6 +1,6 @@
 function doTalk(text) {
   $('#msgPlace').append(`
-        <div class="user-place">
+        <div class="user-place w-100 position-relative">
                 <div class="msg-outside">
                     <div class="msg">
                         <p>${text}</p>
@@ -9,11 +9,11 @@ function doTalk(text) {
             </div>
         `)
 
-        let marginForHeader = document.documentElement.style.getPropertyValue(
-            '--margin-for-header',
-          )
-          let _marginForHeader = marginForHeader.replace('px', '')
-        $(this).scrollTop($('.user-place').last().offset().top - _marginForHeader)
+  let marginForHeader = document.documentElement.style.getPropertyValue(
+    '--margin-for-header',
+  )
+  let _marginForHeader = marginForHeader.replace('px', '')
+  $(this).scrollTop($('.user-place').last().offset().top - _marginForHeader)
   setTimeout(() => {
     doResponse(text)
   }, 500)
@@ -57,28 +57,34 @@ function doResponse(text) {
       $('#msgPlace').append(appendHtml)
 
       if (obj.card != undefined) {
-          let marginForHeader = document.documentElement.style.getPropertyValue(
-            '--margin-for-header',
-          )
-          let _marginForHeader = marginForHeader.replace('px', '')
+        let marginForHeader = document.documentElement.style.getPropertyValue(
+          '--margin-for-header',
+        )
+        let _marginForHeader = marginForHeader.replace('px', '')
+
+        $(this).scrollTop(
+          $('.user-place').last().offset().top - _marginForHeader,
+        )
+        $(".recommend-cards .rec-card a[href='javascript:void(0)']").unbind(
+          'click',
+          recommendFn,
+        )
+        $(".recommend-cards .rec-card a[href='javascript:void(0)']").bind(
+          'click',
+          (recommendFn = (e) => {
+            doTalk($(e.currentTarget).text())
+          }),
+        )
+
+        if (!mobile()) {
+          $('.recommend-cards').addClass('hasscrollbar')
+        }
         
-          $(this).scrollTop($('.user-place').last().offset().top - _marginForHeader)
-          $(".recommend-cards .rec-card a[href='javascript:void(0)']").unbind(
-            'click',
-            recommendFn,
-          )
-          $(".recommend-cards .rec-card a[href='javascript:void(0)']").bind(
-            'click',
-            (recommendFn = (e) => {
-              doTalk($(e.currentTarget).text())
-            }),
-          )
-          cardScroll()
+        cardScroll()
       }
       return false
     }
   })
-
 }
 
 let recommendFn
@@ -90,3 +96,12 @@ $(function () {
     }),
   )
 })
+
+function mobile() {
+  try {
+    document.createEvent('TouchEvent')
+    return true
+  } catch (e) {
+    return false
+  }
+}
