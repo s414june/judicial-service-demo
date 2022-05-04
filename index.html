@@ -35,7 +35,8 @@
                     <a href="#">司法院智慧客服使用說明</a>。
                     <br>
                     為保護您的權益，請詳細閱讀
-                    <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html" target="_blank">隱私權宣告及資訊安全政策</a>
+                    <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html"
+                        target="_blank">隱私權宣告及資訊安全政策</a>
                     ，當問題送出時，即視同您已充分了解與同意。
                 </li>
             </ul>
@@ -78,7 +79,7 @@
                 </div>
                 <div class="recommend-outside position-relative mx-md-2">
                     <div class="goto-left-btn">
-                        <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                        <i class="fa-solid fa-chevron-left text-primary"></i>
                     </div>
                     <div class="recommend-cards mx-md-4 mx-md-3">
                         <div class="position-relative d-flex cards-outside py-1">
@@ -126,7 +127,7 @@
                         </div>
                     </div>
                     <div class=" goto-right-btn">
-                        <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                        <i class="fa-solid fa-chevron-right text-primary"></i>
                     </div>
                 </div>
             </div>
@@ -170,7 +171,7 @@
                     <small class="msg-datetime mx-4">2022/03/14 13:27:40</small>
                     <div class="recommend-outside position-relative">
                         <div class="goto-left-btn">
-                            <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                            <i class="fa-solid fa-chevron-left text-primary"></i>
                         </div>
                         <div class="recommend-cards mx-4">
                             <div class="position-relative d-flex cards-outside">
@@ -186,7 +187,7 @@
                             </div>
                         </div>
                         <div class=" goto-right-btn">
-                            <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                            <i class="fa-solid fa-chevron-right text-primary"></i>
                         </div>
                     </div>
                 </div>
@@ -264,6 +265,14 @@
             headerHeight = $("header").height();
             document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
         })
+
+        var input = document.getElementById("userInputPlace");
+        input.addEventListener("keyup", function (event) {
+            event.preventDefault();
+            if (event.keyCode === 13) {
+                document.getElementById("userSubmitBtn").click();
+            }
+        });
     })
 
     $("#userSubmitBtn").click(() => {
@@ -271,7 +280,7 @@
             alert("請按「公證與認證」或「文件認證轄區限制」，或輸入「我要拋棄繼承」，以進行前端demo測試");
             return;
         }
-        doTalk($("#userInputPlace").val(),"multi");
+        doTalk($("#userInputPlace").val(), "multi");
         $("#userInputPlace").val("");
     })
 

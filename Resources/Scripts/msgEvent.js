@@ -64,7 +64,7 @@ function doResponse(text, resType) {
       if (resType == 'multi') {
         if (obj.text != undefined) {
           appendHtml += `
-                      <div class="msg mx-md-4 ms-4">
+                      <div class="msg mx-md-4 ms-4 multi-answer">
                         <p><strong>我幫您找到的相關問題：</strong></p>
                         <hr>
                         <ul>
@@ -104,7 +104,7 @@ function doResponse(text, resType) {
         appendHtml += `
                     <div class="recommend-outside mx-md-2 position-relative">
                         <div class="goto-left-btn">
-                            <i class="fa-solid fa-chevron-left text-primary fa-2x"></i>
+                            <i class="fa-solid fa-chevron-left text-primary"></i>
                         </div>
                         <div class="recommend-cards mx-md-4 mx-md-3">
                             <div class="position-relative d-flex cards-outside py-1">
@@ -112,7 +112,7 @@ function doResponse(text, resType) {
                             </div>
                         </div>
                         <div class=" goto-right-btn">
-                            <i class="fa-solid fa-chevron-right text-primary fa-2x"></i>
+                            <i class="fa-solid fa-chevron-right text-primary"></i>
                         </div>
                     </div>
                     `

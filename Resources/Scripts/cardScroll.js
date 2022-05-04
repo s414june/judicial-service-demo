@@ -28,7 +28,8 @@ function cardScroll() {
       else{
         cardsWidth += $(v).width()
       }
-      cardsWidth += 16 //1rem
+      if(i<insideCards.length - 1)  //如果不是最後一個元素
+        cardsWidth += 16 //1rem
     })
     const absoluteMaxWidth = cardsWidth - outsideWidth
 
