@@ -34,7 +34,7 @@ function doTalk(text, resType) {
                 <div class="msg mx-md-4">
                     <p>${text}</p>
                 </div>
-                <div class="msg-datetime mx-4 mt-2">${moment().format(
+                <div class="msg-datetime mx-s mt-2 mx-md-4">${moment().format(
                   'YYYY/MM/DD HH:mm:ss',
                 )}</div>
             </div>
@@ -84,7 +84,7 @@ function doResponse(text, resType) {
 
         appendHtml += `<div class="mt-2 d-flex mx-md-4 align-items-center response-place flex-wrap">
                 <span>您是否滿意本次回答：</span>
-                <div class="d-flex">
+                <div class="d-flex flex-wrap">
                   <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
                       ${greatSvg}
                       滿意
@@ -148,7 +148,7 @@ function doResponse(text, resType) {
 
           cardScroll()
         }
-        
+
         $('.response-place button').unbind('click', responseFn)
         $('.response-place button').bind(
           'click',

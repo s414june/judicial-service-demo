@@ -116,7 +116,7 @@ footer {
 }
 .msg-datetime {
   color: #b5b5b5;
-  padding: 0 0 10px 10px;
+  padding: 0 10px 10px 10px;
 }
 #msgPlace .service-place .msg::before {
   content: '';
