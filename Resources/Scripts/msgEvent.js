@@ -34,9 +34,9 @@ function doTalk(text, resType) {
                 <div class="msg mx-md-4">
                     <p>${text}</p>
                 </div>
-                <small class="msg-datetime mx-md-4 mt-2">${moment().format(
+                <div class="msg-datetime mx-4 mt-2">${moment().format(
                   'YYYY/MM/DD HH:mm:ss',
-                )}</small>
+                )}</div>
             </div>
         </div>
         `)
@@ -69,7 +69,7 @@ function doResponse(text, resType) {
                           <ul>
                           `
             $(obj.text).each((i, txt) => {
-              appendHtml += `<li>${txt}</li>`
+              appendHtml += `<li><a href="javascript:void(0)" class="rec-target">${txt}</a></li>`
             })
 
             appendHtml += `
@@ -82,21 +82,23 @@ function doResponse(text, resType) {
                   `
         } else return false
 
-        appendHtml += `<small class="d-flex mx-md-4 align-items-center response-place flex-wrap">
-                您是否滿意本次回答：
-                <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
+        appendHtml += `<div class="mt-2 d-flex mx-md-4 align-items-center response-place flex-wrap">
+                <span>您是否滿意本次回答：</span>
+                <div class="d-flex">
+                  <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
+                      ${greatSvg}
+                      滿意
+                  </button>
+                  <button class="btn btn-outline-dark btn-sm res-bad my-2">
                     ${greatSvg}
-                    滿意
-                </button>
-                <button class="btn btn-outline-dark btn-sm res-bad my-2">
-                  ${greatSvg}
-                    不滿意
-                </button>
-            </small>`
+                      不滿意
+                  </button>
+                </div>
+            </div>`
 
-        appendHtml += `<small class="msg-datetime mx-md-4">${moment().format(
+        appendHtml += `<div class="msg-datetime mx-md-4">${moment().format(
           'YYYY/MM/DD HH:mm:ss',
-        )}</small></div>`
+        )}</div></div>`
         if (obj.card != undefined) {
           appendHtml += `
                       <div class="recommend-outside mx-md-2 position-relative">
@@ -127,17 +129,18 @@ function doResponse(text, resType) {
           $('.user-place').last().offset().top - _marginForHeader,
         )
 
+        $("a[href='javascript:void(0)'].rec-target").unbind(
+          'click',
+          recommendFn,
+        )
+        $("a[href='javascript:void(0)'].rec-target").bind(
+          'click',
+          (recommendFn = (e) => {
+            doTalk($(e.currentTarget).text())
+          }),
+        )
+
         if (obj.card != undefined) {
-          $("a[href='javascript:void(0)'].rec-target").unbind(
-            'click',
-            recommendFn,
-          )
-          $("a[href='javascript:void(0)'].rec-target").bind(
-            'click',
-            (recommendFn = (e) => {
-              doTalk($(e.currentTarget).text())
-            }),
-          )
 
           if (!mobile()) {
             $('.recommend-cards').addClass('hasscrollbar')
@@ -145,6 +148,7 @@ function doResponse(text, resType) {
 
           cardScroll()
         }
+        
         $('.response-place button').unbind('click', responseFn)
         $('.response-place button').bind(
           'click',

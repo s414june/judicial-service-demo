@@ -50,10 +50,10 @@ footer {
   justify-content: center;
   align-items: center;
   padding: 0 0.8rem;
-  height: 100%;
+  height: calc(100% + 2px);
   width: 50px;
   position: absolute;
-  left: 0;
+  left: -1px;
   top: 0;
 }
 #userInputPlace {
@@ -72,14 +72,14 @@ footer {
   border-radius: 10000px;
   padding: 0 0.8rem;
   white-space: nowrap;
-  height: 100%;
+  height: calc(100% + 2px);
   width: 80px;
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
 }
 #msgPlace {
-  padding: 1rem 1rem 0 1rem ;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .service-place .head-img {
@@ -99,7 +99,8 @@ footer {
   width: 50px;
   height: 50px;
 }
-#msgPlace .service-place .msg-outside,#msgPlace .user-place .msg-outside {
+#msgPlace .service-place .msg-outside,
+#msgPlace .user-place .msg-outside {
   width: calc(100% - 3rem);
   position: relative;
   display: flex;
@@ -138,7 +139,7 @@ footer {
   /* transform: translateX(calc(0px - (1rem))); */
 }
 #msgPlace .user-place .msg {
-  background-color: #2B62AD;
+  background-color: #2b62ad;
   color: #ffffff;
   padding: 0.5rem 1rem;
   border-radius: 5px;
@@ -198,11 +199,11 @@ footer {
 }
 .goto-left-btn {
   left: 0;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 .goto-right-btn {
   right: 0;
-  transform: translate(50%,-50%);
+  transform: translate(50%, -50%);
 }
 
 .recommend-cards {
@@ -264,6 +265,7 @@ footer {
   /* box-shadow: 2px 2px 5px rgba(0, 0, 0,0.3); */
   border-radius: 1000px;
   white-space: nowrap;
+  background-color: #ffffff;
 }
 .small-card > * {
   padding: 1rem;
@@ -272,6 +274,7 @@ footer {
 .card-img-top {
   height: 170px;
   background-size: cover;
+  background-position: center;
 }
 
 /* @media (min-width: 768px) {
@@ -286,56 +289,61 @@ footer {
   }
 } */
 
-
-.response-place{
+.response-place {
   padding: 0 10px;
 }
 
-.res-great,.res-bad{
+.res-great,
+.res-bad {
   display: flex;
   justify-content: center;
   align-items: center;
   white-space: nowrap;
 }
 
-.res-great>svg,.res-bad>svg{
+.res-great > svg,
+.res-bad > svg {
   width: 20px;
   padding-right: 5px;
 }
-.res-bad>svg{
+.res-bad > svg {
   transform: rotate(180deg) scaleX(-1);
 }
 
-.res-thanks{
+.res-thanks {
   /* 保留按鈕的間距和框框高度*/
-  padding: calc(0.25rem + 1px) 0; 
+  padding: calc(0.25rem + 1px) 0;
 }
-.info-place ul{
-  list-style-image:url("../Images/android-logo.svg");
+.info-place ul {
+  list-style-image: url('../Images/android-logo.svg');
 }
 
-.multi-answer ul{
+.multi-answer ul {
   padding: 0;
 }
 
-.multi-answer li{
+.multi-answer li {
   list-style: none;
   padding: 0.5rem 0;
   border-bottom: 1px dashed #000000;
 }
 
-.multi-answer li::before{
-  content: "◎";
+.multi-answer li::before {
+  content: '◎';
   padding: 0 0.5rem;
 }
 
-.multi-answer li:first-child{
+.multi-answer li:first-child {
   padding-top: 0px;
 }
 
-.multi-answer li:last-child{
+.multi-answer li:last-child {
   padding-bottom: 0px;
-  border-bottom: none
+  border-bottom: none;
+}
+
+.recommend-cards .card{
+  width: 18rem;
 }
 
 @media (max-width: 767px) {
@@ -344,16 +352,22 @@ footer {
   }
   #msgPlace .user-place .msg {
     max-width: 100%;
-    white-space:normal;
+    white-space: normal;
   }
   .recommend-cards {
     width: 100%;
   }
   .goto-left-btn {
-    left: 0.2rem;
+    left: 0.5rem;
   }
   .goto-right-btn {
-    right: 0.2rem;
+    right: 0.5rem;
+  }
+  .goto-left-btn,
+  .goto-right-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.5rem;
   }
   /* #msgPlace .service-place .msg-outside,#msgPlace .user-place .msg-outside {
     width: calc(100% - 3rem);
@@ -370,27 +384,31 @@ footer {
     -khtml-user-select: none;
     user-select: none;
   } */
-  #fontChanger{
+  #fontChanger {
     position: fixed;
     left: 100%;
     transform: translateX(-100%);
     top: 0.5rem;
     height: 20px;
   }
-  #fontChanger img{
+  #fontChanger img {
     width: 1rem;
     height: 1rem;
   }
-  #userInputPlace{
+  #userInputPlace {
     left: calc(1.5rem - 10px);
     width: calc(100% - 80px);
   }
-  #titleOutside{
+  #titleOutside {
     padding: 0.5rem 1rem;
     text-align: left;
   }
-  #titleOutside h5{
+  #titleOutside h5 {
     font-size: 1rem;
+  }
+
+  .recommend-cards .card{
+    width: 15rem;
   }
 }
 
@@ -428,7 +446,7 @@ footer {
   border-radius: 100px; /* roundness of the scroll thumb */
 }
 
-.btn-outline-dark{
+.btn-outline-dark {
   color: #404040;
   border-color: #404040;
 }
@@ -437,28 +455,28 @@ footer {
   border-color: #404040;
   background: none;
 } */
-.btn-outline-dark.res-great:hover{
+.btn-outline-dark.res-great:hover {
   color: #16a34a;
   border-color: #16a34a;
   background: none;
 }
-.btn-outline-dark.res-great:hover path{
-  stroke:#16a34a;
+.btn-outline-dark.res-great:hover path {
+  stroke: #16a34a;
 }
-.btn-outline-dark.res-bad:hover{
+.btn-outline-dark.res-bad:hover {
   color: #dc2626;
   border-color: #dc2626;
   background: none;
 }
-.btn-outline-dark.res-bad:hover path{
-  stroke:#dc2626;
+.btn-outline-dark.res-bad:hover path {
+  stroke: #dc2626;
 }
-.btn-outline-dark path{
+.btn-outline-dark path {
   transition: 0.15s;
 }
-.btn-outline-dark:hover path{
+.btn-outline-dark:hover path {
   transition: 0.15s;
 }
-.btn-outline-dark:focus{
+.btn-outline-dark:focus {
   box-shadow: none;
 }
