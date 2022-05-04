@@ -54,109 +54,107 @@ function doResponse(text, resType) {
   let appendHtml = ''
   $(msgObj).each((i, obj) => {
     if (obj.userInput == text) {
-      appendHtml += `
-      <div class="service-place position-relative w-100">
-        <div class="head-img">
-            <img src="./Resources/Images/service-head.png" alt="司法院客服頭貼">
-        </div>
-        <div class="msg-outside mx-md-5 ms-5  position-relative">
-                `
-      if (resType == 'multi') {
-        if (obj.text != undefined) {
-          appendHtml += `
-                      <div class="msg mx-md-4 ms-4 multi-answer">
-                        <p><strong>我幫您找到的相關問題：</strong></p>
-                        <hr>
-                        <ul>
-                        `
-          $(obj.text).each((i, txt) => {
-            appendHtml += `<li>${txt}</li>`
-          })
-
-          appendHtml += `
-                        </ul>
-                      </div>
+        appendHtml += `
+        <div class="service-place position-relative w-100">
+          <div class="head-img">
+              <img src="./Resources/Images/service-head.png" alt="司法院客服頭貼">
+          </div>
+          <div class="msg-outside mx-md-5 ms-5  position-relative">
                   `
-        }
-      } else if (obj.msg != undefined) {
-        appendHtml += `
-                    <div class="msg mx-md-4 ms-4">${obj.msg}</div>
-                `
-      }
-      else return;
-      
-      appendHtml += `<small class="d-flex mx-md-4 align-items-center response-place flex-wrap">
-              您是否滿意本次回答：
-              <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
-                  ${greatSvg}
-                  滿意
-              </button>
-              <button class="btn btn-outline-dark btn-sm res-bad my-2">
-                ${greatSvg}
-                  不滿意
-              </button>
-          </small>`
+        if (resType == 'multi' && obj.text != undefined) {
+            appendHtml += `
+                        <div class="msg mx-md-4 ms-4 multi-answer">
+                          <p><strong>我幫您找到的相關問題：</strong></p>
+                          <hr>
+                          <ul>
+                          `
+            $(obj.text).each((i, txt) => {
+              appendHtml += `<li>${txt}</li>`
+            })
 
-      appendHtml += `<small class="msg-datetime mx-md-4">${moment().format(
-        'YYYY/MM/DD HH:mm:ss',
-      )}</small></div>`
-      if (obj.card != undefined) {
-        appendHtml += `
-                    <div class="recommend-outside mx-md-2 position-relative">
-                        <div class="goto-left-btn">
-                            <i class="fa-solid fa-chevron-left text-primary"></i>
+            appendHtml += `
+                          </ul>
                         </div>
-                        <div class="recommend-cards mx-md-4 mx-md-3">
-                            <div class="position-relative d-flex cards-outside py-1">
-                                ${obj.card}
-                            </div>
-                        </div>
-                        <div class=" goto-right-btn">
-                            <i class="fa-solid fa-chevron-right text-primary"></i>
-                        </div>
-                    </div>
                     `
-      }
-      appendHtml += '</div>'
-      $('#msgPlace').append(appendHtml)
+        } else if (resType == undefined && obj.msg != undefined) {
+          appendHtml += `
+                      <div class="msg mx-md-4 ms-4">${obj.msg}</div>
+                  `
+        } else return false
 
-      let marginForHeader = document.documentElement.style.getPropertyValue(
-        '--margin-for-header',
-      )
-      let _marginForHeader = marginForHeader.replace('px', '')
+        appendHtml += `<small class="d-flex mx-md-4 align-items-center response-place flex-wrap">
+                您是否滿意本次回答：
+                <button class="btn btn-outline-dark btn-sm res-great my-2 me-1">
+                    ${greatSvg}
+                    滿意
+                </button>
+                <button class="btn btn-outline-dark btn-sm res-bad my-2">
+                  ${greatSvg}
+                    不滿意
+                </button>
+            </small>`
 
-      $(this).scrollTop($('.user-place').last().offset().top - _marginForHeader)
+        appendHtml += `<small class="msg-datetime mx-md-4">${moment().format(
+          'YYYY/MM/DD HH:mm:ss',
+        )}</small></div>`
+        if (obj.card != undefined) {
+          appendHtml += `
+                      <div class="recommend-outside mx-md-2 position-relative">
+                          <div class="goto-left-btn">
+                              <i class="fa-solid fa-chevron-left text-primary"></i>
+                          </div>
+                          <div class="recommend-cards mx-md-4 mx-md-3">
+                              <div class="position-relative d-flex cards-outside py-1">
+                                  ${obj.card}
+                              </div>
+                          </div>
+                          <div class=" goto-right-btn">
+                              <i class="fa-solid fa-chevron-right text-primary"></i>
+                          </div>
+                      </div>
+                      `
+        }
+        appendHtml += '</div>'
 
-      if (obj.card != undefined) {
-        $("a[href='javascript:void(0)'].rec-target").unbind(
-          'click',
-          recommendFn,
+        $('#msgPlace').append(appendHtml)
+
+        let marginForHeader = document.documentElement.style.getPropertyValue(
+          '--margin-for-header',
         )
-        $("a[href='javascript:void(0)'].rec-target").bind(
+        let _marginForHeader = marginForHeader.replace('px', '')
+
+        $(this).scrollTop(
+          $('.user-place').last().offset().top - _marginForHeader,
+        )
+
+        if (obj.card != undefined) {
+          $("a[href='javascript:void(0)'].rec-target").unbind(
+            'click',
+            recommendFn,
+          )
+          $("a[href='javascript:void(0)'].rec-target").bind(
+            'click',
+            (recommendFn = (e) => {
+              doTalk($(e.currentTarget).text())
+            }),
+          )
+
+          if (!mobile()) {
+            $('.recommend-cards').addClass('hasscrollbar')
+          }
+
+          cardScroll()
+        }
+        $('.response-place button').unbind('click', responseFn)
+        $('.response-place button').bind(
           'click',
-          (recommendFn = (e) => {
-            doTalk($(e.currentTarget).text())
+          (responseFn = (e) => {
+            $(e.currentTarget)
+              .parent()
+              .html("<span class='my-2 res-thanks'>感謝您的回饋！</span>")
           }),
         )
-
-        if (!mobile()) {
-          $('.recommend-cards').addClass('hasscrollbar')
-        }
-
-        cardScroll()
       }
-      $('.response-place button').unbind('click', responseFn)
-      $('.response-place button').bind(
-        'click',
-        (responseFn = (e) => {
-          $(e.currentTarget)
-            .parent()
-            .html("<span class='my-2 res-thanks'>感謝您的回饋！</span>")
-        }),
-      )
-      
-      return false
-    }
   })
 }
 
