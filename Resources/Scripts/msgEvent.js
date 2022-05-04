@@ -139,22 +139,22 @@ function doResponse(text, resType) {
           }),
         )
 
-        $('.response-place button').unbind('click', responseFn)
-        $('.response-place button').bind(
-          'click',
-          (responseFn = (e) => {
-            $(e.currentTarget)
-              .parent()
-              .html("<span class='my-2 res-thanks'>感謝您的回饋！</span>")
-          }),
-        )
-
         if (!mobile()) {
           $('.recommend-cards').addClass('hasscrollbar')
         }
 
         cardScroll()
       }
+      $('.response-place button').unbind('click', responseFn)
+      $('.response-place button').bind(
+        'click',
+        (responseFn = (e) => {
+          $(e.currentTarget)
+            .parent()
+            .html("<span class='my-2 res-thanks'>感謝您的回饋！</span>")
+        }),
+      )
+      
       return false
     }
   })
