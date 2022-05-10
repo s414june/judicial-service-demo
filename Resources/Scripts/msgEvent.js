@@ -154,7 +154,7 @@ function doResponse(text, resType) {
           'click',
           (responseFn = (e) => {
             $(e.currentTarget)
-              .parent()
+              .parent().parent()
               .html("<span class='my-2 res-thanks'>感謝您的回饋！</span>")
           }),
         )
