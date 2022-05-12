@@ -26,21 +26,32 @@
 <body>
     <header>
         <div id="titleOutside">
-            <h5 id="title">司法院客服小幫手</h1>
+            <h5 id="title">司法院客服小幫手</h5>
+            <div class="info-icon">
+                <svg width="11" height="30" viewBox="0 0 11 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M2.68 2.68C2.68 2.17333 2.96 1.61333 3.52 0.999998C4.10667 0.359998 4.64 0.0399985 5.12 0.0399985C5.62667 0.0399985 6.17333 0.346665 6.76 0.959999C7.34667 1.57333 7.64 2.14667 7.64 2.68C7.64 3.18666 7.34667 3.74666 6.76 4.36C6.17333 4.97333 5.62667 5.28 5.12 5.28C4.66667 5.28 4.14667 4.97333 3.56 4.36C2.97333 3.74666 2.68 3.18666 2.68 2.68ZM6.92 25.48C6.92 26.3867 7.32 26.84 8.12 26.84C8.78667 26.84 9.45333 26.56 10.12 26L10.88 27.04C10.1867 27.8133 9.44 28.4267 8.64 28.88C7.84 29.3333 7.09333 29.56 6.4 29.56C5.30667 29.56 4.52 29.2267 4.04 28.56C3.56 27.8933 3.32 26.8133 3.32 25.32V12.92C3.32 12.6 3.25333 12.3733 3.12 12.24C3.01333 12.1067 2.81333 12.04 2.52 12.04H0.76L0.4 11C1.17333 10.3067 2.05333 9.73333 3.04 9.28C4.02667 8.82666 4.90667 8.6 5.68 8.6C6.05333 8.6 6.36 8.72 6.6 8.96C6.84 9.2 6.96 9.50667 6.96 9.88L6.92 25.48Z"
+                        fill="#E16038" />
+                </svg>
+            </div>
         </div>
         <div class="alert alert-warning alert-dismissible fade show info-place" role="alert">
             <ul>
                 <li>
-                    歡迎使用司法院智慧客服，使用說明及注意事項請參閱：
-                    <a href="#">司法院智慧客服使用說明</a>。
-                    <br>
-                    為保護您的權益，請詳細閱讀
-                    <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html"
-                        target="_blank">隱私權宣告及資訊安全政策</a>
-                    ，當問題送出時，即視同您已充分了解與同意。
+                    <p>
+                        歡迎使用司法院智慧客服，使用說明及注意事項請參閱：
+                        <a href="#">司法院智慧客服使用說明</a>。
+                    </p>
+                    <p>
+                        為保護您的權益，請詳細閱讀
+                        <a href="https://www.judicial.gov.tw/tw/cp-1327-115320-d64f0-1.html"
+                            target="_blank">隱私權宣告及資訊安全政策</a>
+                        ，當問題送出時，即視同您已充分了解與同意。
+                    </p>
                 </li>
             </ul>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+            <button type="button" class="btn btn-outline-warning" aria-label="Close">關閉</button>
         </div>
     </header>
     <section id="main">
@@ -196,11 +207,14 @@
         </div>
     </section>
     <footer>
+        <div id="fontChanger">
+            <!-- <img src="./Resources/Images/font-size.svg" alt="字體大小調整"> -->
+            <div class="smaller"><img src="./Resources/Images/A-.svg" alt="字變小"></div>
+            <div><img src="./Resources/Images/A.svg" alt="一般大小"></div>
+            <div class="bigger"><img src="./Resources/Images/A+.svg" alt="字變大"></div>
+        </div>
         <div id="input-place">
-            <div id="fontChanger">
-                <img src="./Resources/Images/font-size.svg" alt="字體大小調整">
-            </div>
-            <input type="text" placeholder="請輸入提問，建議20字內" id="userInputPlace" class="px-md-4 px-2">
+            <input type="text" placeholder="請輸入提問，建議20字內" id="userInputPlace">
             <button class="btn btn-primary" id="userSubmitBtn">
                 送出
                 <img src="./Resources/Images/send.svg" alt="送出提問">
@@ -219,6 +233,11 @@
     </footer>
 </body>
 <script>
+    const fontsizeVersions = [
+        "0.8rem","1rem","1.2rem","1.5rem","1.7rem"
+    ];
+    let preFontsizeIndex = 1;
+
     $(".msg-datetime").text(moment().format('YYYY/MM/DD HH:mm:ss'));
     //單純前端驗證，暫用
     const pwNum = "70771557";
@@ -241,15 +260,31 @@
         $("#fontChangerCard").hide();
         document.oncontextmenu = new Function("return true");
     })
-    $("#fontChanger").click((e) => {
-        e.stopPropagation();
-        $("#fontChangerCard").toggle();
+
+    $("#fontChanger>div").click((e) => {
+        // e.stopPropagation();
+        // let newFontSize = $(e.currentTarget).css("font-size");
+        let newFontsizeIndex = preFontsizeIndex;
+        let el = $(e.currentTarget);
+        if(el.hasClass("smaller")){
+            if(preFontsizeIndex>0) newFontsizeIndex--;
+            else return;
+        }
+        else if(el.hasClass("bigger")){
+            if(preFontsizeIndex<fontsizeVersions.length - 1) newFontsizeIndex++;
+            else return;
+        }
+        else{
+            newFontsizeIndex = 1;
+            if(newFontsizeIndex==preFontsizeIndex) return;
+        }
+        document.documentElement.style.setProperty("--bs-body-font-size", fontsizeVersions[newFontsizeIndex]);
+        preFontsizeIndex = newFontsizeIndex;
+        //修改高度
+        headerHeight = $("header").height();
+            document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
     })
-    $("#fontChangerCard .font-changer-btn").click((e) => {
-        e.stopPropagation();
-        let newFontSize = $(e.currentTarget).css("font-size");
-        document.documentElement.style.setProperty("--bs-body-font-size", newFontSize);
-    })
+
 
     $(function () {
         const cardCount = $('.recommend-cards .card').length;
@@ -260,10 +295,29 @@
         document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
         document.documentElement.style.setProperty("--margin-for-footer", footerHeight + "px");
 
-        var alertNode = document.querySelector('header .alert');
-        alertNode.addEventListener('closed.bs.alert', function () {
+        // var alertNode = document.querySelector('header .alert');
+        // alertNode.addEventListener('closed.bs.alert', function () {
+        //     headerHeight = $("header").height();
+        //     document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
+
+        //     //更改i圖示呈現
+        //     $(".info-icon").addClass("closed");
+        // })
+        
+        $(".info-place button").click(()=>{
+            $(".info-place").hide();
             headerHeight = $("header").height();
             document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
+            //更改i圖示呈現
+            $(".info-icon").addClass("closed");
+        })
+
+        $(".info-icon").click((e)=>{
+            $(".info-place").toggle();
+            headerHeight = $("header").height();
+            document.documentElement.style.setProperty("--margin-for-header", headerHeight + "px");
+            //更改i圖示呈現
+            $(".info-icon").toggleClass("closed");
         })
 
         var input = document.getElementById("userInputPlace");
@@ -274,6 +328,8 @@
             }
         });
     })
+
+
 
     $("#userSubmitBtn").click(() => {
         if ($("#userInputPlace").val() == "") {
